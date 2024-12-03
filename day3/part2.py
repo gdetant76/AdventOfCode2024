@@ -12,6 +12,8 @@ with open('./day3/input.txt', 'r') as file:
 
 
     pattern = r"mul\(\d+,\d+\)"
+    patterndont = r"don't\(\)"
+
     
     for line in reports:
         line = line.strip()

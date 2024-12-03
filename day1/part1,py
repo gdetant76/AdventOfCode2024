@@ -1,0 +1,29 @@
+
+
+listA=[]
+listB=[]
+
+with open('input.txt', 'r') as file:
+    
+    lists = file.readlines()
+
+    for list in lists:
+        list = list.strip()
+        itemA, itemB = list.split('   ')
+        listA.append(int(itemA))
+        listB.append(int(itemB))
+
+listA.sort()
+listB.sort()
+
+totaldistance = 0
+for i in range(len(listA)):
+    distance = abs(listA[i] - listB[i])
+    totaldistance += distance
+
+print(listA)
+print(listB)
+print(totaldistance)
+
+
+    

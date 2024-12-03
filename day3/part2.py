@@ -26,25 +26,20 @@ def CalculateLine(line):
 
 
 with open('./day3/input.txt', 'r') as file:
-    reports = file.readlines()
+    program = file.readlines()
     
-    sum=0
-
-    pattern = r"mul\(\d+,\d+\)"
     patterndont = r"don't\(\)"
-    
-    startwithDont = False
-    
+        
     giantline = ""
-    for line in reports:
+    for line in program:
         giantline += line.strip()
 
     match = re.search(patterndont, giantline)
 
     while match is not None:
-        pos = FindNextDo(giantline, match.start())
-        print("location dont: ", match.start(), "location do:", pos)
-        giantline = giantline[:match.start()] + giantline[pos:]
+        posd = match.start()
+        pos = FindNextDo(giantline,posd )
+        giantline = giantline[:posd] + giantline[pos:]
         match = re.search(patterndont, giantline) 
 
     sum = CalculateLine(giantline)
@@ -52,7 +47,7 @@ with open('./day3/input.txt', 'r') as file:
     print(sum)
     
 
-    
+ #   startwithDont = False   
  #   for line in reports:
  #       line = line.strip()
  #       lineMul = ""

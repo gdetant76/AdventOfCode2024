@@ -3,7 +3,7 @@
 listA=[]
 listB=[]
 
-with open('input.txt', 'r') as file:
+with open('./day1/input.txt', 'r') as file:
     
     lists = file.readlines()
 

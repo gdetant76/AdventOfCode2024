@@ -73,7 +73,7 @@ def CheckDec(report):
 
 
 
-with open('input.txt', 'r') as file:
+with open('./day2/input.txt', 'r') as file:
     
     reports = file.readlines()
     totalsafe = 0
@@ -81,17 +81,10 @@ with open('input.txt', 'r') as file:
         list = list.strip()
         items = list.split(' ')
         report = [int(item) for item in items]
-        faultsInc = 0
-        faultsDec = 0       
-       # print("Inc: ", CheckInc(report), "Dec :",CheckDec(report))
-
-        if CheckInc(report) or CheckDec(report):
+        
+        if all((i < j and i >= j-3) for i, j in zip(report, report[1:])) or all((i > j and i <= j+3) for i, j in zip(report, report[1:])):
             totalsafe += 1
-        else:
-            print(report)
-
     print(totalsafe)
-
 
         
 #        for i in range(len(report)):
